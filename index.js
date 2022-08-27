@@ -19,6 +19,7 @@ import prompts from 'prompts';
 
 // always treat project name (first argument ( _ )) as string
 const argv = minimist(process.argv.slice(2), { string: ['_'] });
+const cwd = process.cwd();
 
 const PROJECT_TYPE = [
   {
@@ -106,27 +107,27 @@ const main = async () => {
         },
         {
           type: template && TEMPLATES.includes(template) ? null : 'select',
-          name: 'projectTemplate',
+          name: 'projectType',
           message:
             typeof template === 'string' && !TEMPLATES.includes(template)
               ? `"${template}" is not a valid template. Please choose from below:`
               : 'Select project type:',
           initial: 0,
-          choices: PROJECT_TYPE.map(projectTemplate => {
-            const displayColor = projectTemplate.color;
+          choices: PROJECT_TYPE.map(projectType => {
+            const displayColor = projectType.color;
             return {
-              title: displayColor(projectTemplate.name),
-              value: projectTemplate,
+              title: displayColor(projectType.name),
+              value: projectType,
             };
           }),
         },
         {
-          type: projectTemplate =>
-            projectTemplate && projectTemplate.variants ? 'select' : null,
+          type: projectType =>
+            projectType && projectType.variants ? 'select' : null,
           name: 'variant',
           message: 'Select a variant:',
-          choices: projectTemplate =>
-            projectTemplate.variants.map(variant => {
+          choices: projectType =>
+            projectType.variants.map(variant => {
               const displayColor = variant.color;
               return {
                 title: displayColor(variant.name),
@@ -144,6 +145,16 @@ const main = async () => {
   } catch (cancelled) {
     console.log(cancelled.message);
     return;
+  }
+
+  const userPromptsChoice = result;
+  const { overwriteDir, packageName, projectType, variant } = userPromptsChoice;
+
+  const root = path.join(cwd, targetDir);
+
+  if (overwriteDir) {
+  } else if (!fs.existsSync(root)) {
+    fs.mkdirSync(root, { recursive: true });
   }
 };
 
