@@ -1,2 +1,3 @@
-# boart-hat
-Project scaffolding cli tool
+# create-belialuin
+
+Starter kit package for my projects.
