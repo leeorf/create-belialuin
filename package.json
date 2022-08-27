@@ -4,5 +4,13 @@
   "main": "index.js",
   "repository": "git@github.com:leeorf/boart-hat.git",
   "author": "Leonardo Rodrigues <leo.rf.dev@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "prettier-config-belialuin": "^1.2.0"
+  }
 }
