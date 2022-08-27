@@ -1,11 +1,14 @@
 {
-  "name": "boart-hat",
+  "name": "create-belialuin",
   "version": "0.0.0",
   "type": "module",
   "main": "index.js",
   "repository": "git@github.com:leeorf/boart-hat.git",
   "author": "Leonardo Rodrigues <leo.rf.dev@gmail.com>",
   "license": "MIT",
+  "bin": {
+    "create-belialuin": "index.js"
+  },
   "scripts": {
     "format": "prettier . --write",
     "format:check": "prettier . --check"
