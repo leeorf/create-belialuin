@@ -1,6 +1,7 @@
 {
   "name": "boart-hat",
   "version": "0.0.0",
+  "type": "module",
   "main": "index.js",
   "repository": "git@github.com:leeorf/boart-hat.git",
   "author": "Leonardo Rodrigues <leo.rf.dev@gmail.com>",
