@@ -13,5 +13,10 @@
   "devDependencies": {
     "prettier": "^2.7.1",
     "prettier-config-belialuin": "^1.2.0"
+  },
+  "dependencies": {
+    "kolorist": "^1.5.1",
+    "minimist": "^1.2.6",
+    "prompts": "^2.4.2"
   }
 }
