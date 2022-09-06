@@ -1,9 +1,6 @@
-import * as path from 'node:path';
-
 import type { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {
-  rootDir: path.resolve(__dirname),
   roots: ['<rootDir>/src/', '<rootDir>/tests/'],
   verbose: true,
   testEnvironment: 'jsdom',
