@@ -136,7 +136,6 @@ const main = async () => {
 
   const pkgInfo = pkgFromUserAgent(process.env.npm_config_user_agent);
   const pkgManager = pkgInfo ? pkgInfo.name : 'npm';
-  const isYarn1 = pkgManager === 'yarn' && pkgInfo?.version.startsWith('1.');
 
   console.log(`\nScaffolding project in ${root}...`);
 
