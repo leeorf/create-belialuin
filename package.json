@@ -22,6 +22,12 @@
     "test:staged": "yarn test --findRelatedTests",
     "prepack": "yarn test"
   },
+  "keywords": [
+    "boilerplate",
+    "react",
+    "react-boilerplate",
+    "vite"
+  ],
   "lint-staged": {
     "*": [
       "prettier --write --ignore-unknown"
