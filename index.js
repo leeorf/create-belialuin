@@ -31,6 +31,10 @@ const TEMPLATES = FRAMEWORKS.map(
   f => (f.variants && f.variants.map(v => v.name)) || f.name
 ).reduce((a, b) => a.concat(b), []);
 
+const renameFiles = {
+  _gitignore: '.gitignore',
+};
+
 const main = async () => {
   let targetDir = formatTargetDir(argv._[0]);
   let template = argv.template || argv.t;
@@ -146,7 +150,7 @@ const main = async () => {
   );
 
   const write = (file, content) => {
-    const targetPath = path.join(root, file);
+    const targetPath = path.join(root, renameFiles[file] ?? file);
 
     if (content) {
       fs.writeFileSync(targetPath, content);
