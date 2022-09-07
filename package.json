@@ -9,6 +9,10 @@
   "bin": {
     "create-belialuin": "index.js"
   },
+  "files": [
+    "index.js",
+    "template-*"
+  ],
   "scripts": {
     "format": "prettier . --write",
     "format:check": "prettier . --check",
