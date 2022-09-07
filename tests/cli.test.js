@@ -10,6 +10,7 @@ const fakeDirName = 'test-app';
 const fakeDirPath = path.resolve(__dirname, fakeDirName);
 const templateFiles = fs
   .readdirSync(path.resolve(CLI_PATH, 'template-react-vite-ts'))
+  .map(file => (file.includes('gitignore') ? '.gitignore' : file))
   .sort();
 
 const run = (args, options) => {
@@ -111,5 +112,15 @@ describe('cli test', () => {
 
     expect(stdout).toContain(`Scaffolding project in ${fakeDirPath}`);
     expect(generatedFiles).toEqual(templateFiles);
+  });
+
+  it('should copy _gitigore file ranamed to .gitignore', () => {
+    const { stdout } = run([fakeDirName, '--template', 'react-vite-ts'], {
+      cwd: __dirname,
+    });
+
+    const generatedFiles = fs.readdirSync(fakeDirPath).sort();
+
+    expect(generatedFiles).toContain('.gitignore');
   });
 });
