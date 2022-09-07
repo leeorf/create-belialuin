@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/leeorf/boart-hat/compare/v1.0.1...v1.0.2) (2022-09-07)
+
+
+### Bug Fixes
+
+* **gitignore:** .gitignore that was not being copied when using the npm hosted package ([051589b](https://github.com/leeorf/boart-hat/commit/051589b2246f87385a4c84ddba0a87806f69487c))
+
 ## [1.0.1](https://github.com/leeorf/boart-hat/compare/v1.0.0...v1.0.1) (2022-09-07)
 
 # 1.0.0 (2022-09-07)
