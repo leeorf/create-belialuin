@@ -14,14 +14,30 @@
     "template-*"
   ],
   "scripts": {
+    "prepare": "husky install",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --passWithNoTests --no-cache --runInBand",
+    "test:staged": "yarn test --findRelatedTests"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --ignore-unknown"
+    ],
+    "*.js": [
+      "yarn test:staged"
+    ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@types/jest": "^29.0.0",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
     "execa": "^6.1.0",
+    "husky": "^8.0.1",
     "jest": "^29.0.2",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "prettier-config-belialuin": "^1.2.0"
   },
