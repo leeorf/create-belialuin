@@ -31,6 +31,10 @@ const TEMPLATES = FRAMEWORKS.map(
   f => (f.variants && f.variants.map(v => v.name)) || f.name
 ).reduce((a, b) => a.concat(b), []);
 
+const renameFiles = {
+  _gitignore: '.gitignore',
+};
+
 const main = async () => {
   let targetDir = formatTargetDir(argv._[0]);
   let template = argv.template || argv.t;
@@ -136,7 +140,6 @@ const main = async () => {
 
   const pkgInfo = pkgFromUserAgent(process.env.npm_config_user_agent);
   const pkgManager = pkgInfo ? pkgInfo.name : 'npm';
-  const isYarn1 = pkgManager === 'yarn' && pkgInfo?.version.startsWith('1.');
 
   console.log(`\nScaffolding project in ${root}...`);
 
@@ -147,7 +150,7 @@ const main = async () => {
   );
 
   const write = (file, content) => {
-    const targetPath = path.join(root, file);
+    const targetPath = path.join(root, renameFiles[file] ?? file);
 
     if (content) {
       fs.writeFileSync(targetPath, content);
