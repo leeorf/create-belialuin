@@ -44,10 +44,10 @@ npm create belialuin@latest my-app --template react-vite-ts
 npm create belialuin@latest my-app -- --template react-vite-ts
 
 # yarn
-yarn create belialuin my-vue-app --template react-vite-ts
+yarn create belialuin my-app --template react-vite-ts
 
 # pnpm
-pnpm create vite my-vue-app --template react-vite-ts
+pnpm create belialuin my-app --template react-vite-ts
 ```
 
 Currently supported template presets include:
