@@ -19,7 +19,8 @@
     "format:check": "prettier . --check",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "yarn test --watch",
-    "test:staged": "yarn test --findRelatedTests"
+    "test:staged": "yarn test --findRelatedTests",
+    "prepack": "yarn test"
   },
   "lint-staged": {
     "*": [
